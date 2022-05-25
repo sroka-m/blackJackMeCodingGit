@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Poppins", sans-serif;
+        text-align: justify;
+        width: 100%;
+      }
+      #bannerImg {
+        width: 100%;
+        height: 35vh;
+        background-image: url("./longPicCards.png");
+        background-size: 100% auto;
+        background-position: 50% 55%;
+      }
+      header,
+      main {
+        padding: 0 5vw;
+      }
+      main {
+        padding-bottom: 5vh;
+      }
+      header {
+        text-align: center;
+      }
+      h1 {
+        margin: 0.5em 0;
+      }
+      h2 {
+        font-size: 1.45em;
+        padding-bottom: 0.2em;
+      }
+      a {
+        text-decoration: none;
+      }
+      a:hover {
+        color: red;
+      }
+      dt {
+        padding: 0.5em 0;
+        font-size: 1.45em;
+        color: rgb(0, 58, 29);
+        font-weight: 900;
+      }
+    </style>
+    <title>Blackjack description</title>
+  </head>
+  <body>
+    <div id="bannerImg"></div>
+    <header>
+      <h1>How to play Blackjack</h1>
+      <h2>
+        Below are rules used for this online version of the game.<br />
+        Blackjack rules are explained in many articles and
+        <a href="https://www.youtube.com/watch?v=PljDuynF-j0">videos</a>. The
+        rules might vary slightly between casinos.
+      </h2>
+    </header>
+    <div class="container">
+      <main>
+        <dt>Card values</dt>
+        <dd>
+          Blackjack is played with 52 cards: 4 suits, 13 cards in each suit.
+          Cards 2 to 9 have values equal to their numbers, court cards are
+          valued at 10 and aces are valued at 11 or 1, whichever is better for
+          the person playing.
+        </dd>
+        <dt>Main principle</dt>
+        <dd>
+          The objective is to get as close to 21, without exceeding 21. No
+          matter how many player are in the game (this version is limited to one
+          player), each player plays agains the dealer.
+        </dd>
+        <dt>Blackjack (Natural)</dt>
+        <dd>
+          Blackjack is when the player/dealer score exactly 21 from the first
+          two cards. If both have 2 initial cards that sum to 21, they tie. If
+          player wins as a result of blackjack they are paid 150% of their bet.
+          It is worth highlihting that scoring 21 from any other cards than the
+          first two is not Blackjack.
+        </dd>
+        <dt>The play</dt>
+        <dd>
+          The player goes first. They need to decide whether to "stand" (not ask
+          for another card) or "hit" (ask for another card in an attempt to get
+          closer to a count of 21, or even hit 21 exactly). Thus, the player may
+          stand on the two cards originally dealt to them, or they may ask the
+          dealer for additional cards, one at a time, until deciding to stand on
+          the total (if it is 21 or under), or goes "bust" (if it is over 21).
+          In the latter case, the player loses and the dealer collects the bet
+          wagered.
+          <strong
+            >Even if both dealer and player "bust" it is the player who
+            loses.</strong
+          >
+          <br />
+          The combination of an ace with a card other than a ten-card is known
+          as a "soft hand," because the player can count the ace as a 1 or 11,
+          and either draw cards or not. For example with a "soft 17" (an ace and
+          a 6), the total is 7 or 17. While a count of 17 is a good hand, the
+          player may wish to draw for a higher total. If the draw creates a bust
+          hand by counting the ace as an 11, the player simply counts the ace as
+          a 1 and continues playing by standing or "hitting" (asking the dealer
+          for additional cards, one at a time).
+        </dd>
+        <dt>The dealers play</dt>
+        <dd>
+          After the player decided to stand, the dealers face-down card is
+          turned up. If the total is 17 or more, it must stand. If the total is
+          16 or under, they must take a card. The dealer must continue to take
+          cards until the total is 17 or more, at which point the dealer must
+          stand. If the dealer has an ace, and counting it as 11 would bring the
+          total to 17 or more (but not over 21), the dealer must count the ace
+          as 11 and stand.<br />
+          THe dealer cannot double down or split pairs.
+        </dd>
+        <dt>Player strategy</dt>
+        <dd>
+          There are 4 actions a player can take in this game: hit, stand, double
+          down and split pair.(double down and split pair will be covered in
+          later versions)
+        </dd>
+        <dt>Doubling down</dt>
+        <dd>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus,
+          nulla dolorum temporibus neque ducimus recusandae sint enim doloremque
+          quia dolores similique voluptas. Dicta voluptates, error perspiciatis
+          sequi repudiandae itaque unde?
+        </dd>
+        <dt>splitting pairs</dt>
+        <dd>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus,
+          nulla dolorum temporibus neque ducimus recusandae sint enim doloremque
+          quia dolores similique voluptas. Dicta voluptates, error perspiciatis
+          sequi repudiandae itaque unde?
+        </dd>
+        <dt>Betts</dt>
+        <dd>
+          When the player wins a round he receives 100% of the bet they made.
+          Hoever, when the player wins while having Blackjack. In that case they
+          reveive 3:2, 150% percent of the bet. (bets when doubling down or
+          splitting pairs will be covered in later versions of the manual)
+        </dd>
+      </main>
+    </div>
+  </body>
+</html>
