@@ -1,0 +1,26 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+}
+
+#dealer-cards img, #your-cards img {
+    height: 175px;
+    width: 125px;
+    margin: 1px;
+}
+
+button {
+    width: 100px;
+    height: 50px;
+    font-size: 20px;
+    text-align: center;
+}
+
+#reload{
+    width: 150px;
+    background-color: #eb474f;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    border: none;
+}
