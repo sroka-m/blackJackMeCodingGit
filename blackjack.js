@@ -13,6 +13,9 @@ let dealerBlackJack = false;
 let yourBlackJack = false;
 
 let canHit = true; //allows the player (you) to draw while yourSum <= 21
+
+let moneyLeft = 100;
+let bet = 10;
 //u need to defer for these constants NOT to be null
 const para = document.querySelector("#results");
 const dealerContainer = document.querySelector("#dealer-cards");
@@ -106,9 +109,14 @@ function checkIfWonBlackjack() {
   if (dealerBlackJack == true && yourBlackJack == true) {
     para.textContent =
       "both you and the dealer have bleackjack, tie! Game over!";
+    //moneyno change
   } else if (dealerBlackJack == true && yourBlackJack == false) {
+    moneyLeft -= bet;
+    console.log(moneyLeft);
     para.textContent = "dealer won blackjack, game over!";
   } else if (dealerBlackJack == false && yourBlackJack == true) {
+    moneyLeft += 1.5 * bet;
+    console.log(moneyLeft);
     para.textContent = "you won blackjack, game over!";
   } else {
     mainGame();
@@ -156,16 +164,24 @@ function dealerDrawsCards() {
 function whoWon() {
   let message = "";
   if (yourSum > 21) {
+    moneyLeft -= bet;
+    console.log(moneyLeft);
     message = "You Lose!";
   } else if (dealerSum > 21) {
     message = "You win!";
+    moneyLeft += bet;
+    console.log(moneyLeft);
   }
   //both you and dealer <= 21
   else if (yourSum == dealerSum) {
     message = "Tie!";
   } else if (yourSum > dealerSum) {
+    moneyLeft += bet;
+    console.log(moneyLeft);
     message = "You Win!";
   } else if (yourSum < dealerSum) {
+    moneyLeft -= bet;
+    console.log(moneyLeft);
     message = "You Lose!";
   }
 
