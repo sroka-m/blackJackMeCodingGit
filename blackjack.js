@@ -13,25 +13,81 @@ let dealerBlackJack = false;
 let yourBlackJack = false;
 
 let canHit = true; //allows the player (you) to draw while yourSum <= 21
-
-let moneyLeft = 100;
-let bet = 10;
 //u need to defer for these constants NOT to be null
 const para = document.querySelector("#results");
 const dealerContainer = document.querySelector("#dealer-cards");
 const yourContainer = document.querySelector("#your-cards");
 const newGame = document.querySelector("#reload");
 
-window.onload = function () {
-  console.log(newGame);
-  newGame.addEventListener("click", reload, false);
+//the variables relating to money
+let money = 100;
+let bet = 10;
+const inputMoney = document.querySelector('input[id="money"]');
+const inputBet = document.querySelector('input[id="bet"]');
+const formMoney = document.querySelector('form[id="setMoney"]');
+const btnSubmitMoney = document.querySelector('input[type="submit"]');
+const errorInput = document.querySelector("#errorMessageInput");
+const btnRound = document.querySelector('button[id="round"]');
+
+//code starts here
+newGame.addEventListener("click", reloadInitial, false);
+
+function reloadInitial() {
+  reload();
+  sessionStorage.clear();
+}
+
+function reload() {
+  reload = location.reload();
+}
+
+setInitialInput();
+function setInitialInput() {
+  btnRound.removeEventListener("click", reload);
+  //first will try to find out and repopulate the money, if its empty then allow for setting new value for money
+  if (sessionStorage.getItem("currentMoney") !== null) {
+    console.log("there is sometihng in session storage");
+    money = sessionStorage.getItem("currentMoney");
+    console.log(money, typeof money);
+    money = Number(money);
+    console.log(money, typeof money);
+    inputMoney.value = money;
+    inputMoney.setAttribute("disabled", "disabled");
+  }
+  formMoney.addEventListener("submit", (e) => {
+    e.preventDefault();
+    console.log("iam printing the money input field: " + inputMoney.value);
+    let messages = "";
+    if (inputBet.value * 8 >= inputMoney.value) {
+      messages =
+        "To play proper strategy your bet needs to be 8 times smaller than your current money";
+    }
+    if (messages.length > 0) {
+      errorElement.innerHTML = messages;
+    }
+    if (messages.length == 0) {
+      console.log("i am happy");
+      bet = inputBet.value;
+      money = inputMoney.value;
+      //in the real game i will also disalbe the bet input, remving the submit listener
+      // would do that job, but disalbe makes visiallly obvious?
+      inputMoney.setAttribute("disabled", "disabled"); //tihs is repeated but i think it's ok
+      inputBet.setAttribute("disabled", "disabled");
+      console.log(bet, typeof bet);
+      console.log(money, typeof money);
+      bet = Number(bet);
+      money = Number(money);
+      console.log(bet, typeof bet, money, typeof money);
+      gameSetUp();
+    }
+  });
+}
+function gameSetUp() {
+  btnSubmitMoney.setAttribute("disabled", "disabled");
+  console.log("hi setting up for the game");
   buildDeck();
   shuffleDeck();
   startGame();
-};
-// Reload everything:
-function reload() {
-  reload = location.reload();
 }
 
 function buildDeck() {
@@ -111,12 +167,14 @@ function checkIfWonBlackjack() {
       "both you and the dealer have bleackjack, tie! Game over!";
     //moneyno change
   } else if (dealerBlackJack == true && yourBlackJack == false) {
-    moneyLeft -= bet;
-    console.log(moneyLeft);
+    money -= bet;
+    inputMoney.value = money;
+    console.log(money);
     para.textContent = "dealer won blackjack, game over!";
   } else if (dealerBlackJack == false && yourBlackJack == true) {
-    moneyLeft += 1.5 * bet;
-    console.log(moneyLeft);
+    money += 1.5 * bet;
+    inputMoney.value = money;
+    console.log(money);
     para.textContent = "you won blackjack, game over!";
   } else {
     mainGame();
@@ -164,32 +222,59 @@ function dealerDrawsCards() {
 function whoWon() {
   let message = "";
   if (yourSum > 21) {
-    moneyLeft -= bet;
-    console.log(moneyLeft);
+    money -= bet;
+    inputMoney.value = money;
+    console.log(money);
     message = "You Lose!";
   } else if (dealerSum > 21) {
     message = "You win!";
-    moneyLeft += bet;
-    console.log(moneyLeft);
+    money += bet;
+    inputMoney.value = money;
+    console.log(money);
   }
   //both you and dealer <= 21
   else if (yourSum == dealerSum) {
     message = "Tie!";
   } else if (yourSum > dealerSum) {
-    moneyLeft += bet;
-    console.log(moneyLeft);
+    money += bet;
+    inputMoney.value = money;
+    console.log(money);
     message = "You Win!";
   } else if (yourSum < dealerSum) {
-    moneyLeft -= bet;
-    console.log(moneyLeft);
+    money -= bet;
+    inputMoney.value = money;
+    console.log(money);
     message = "You Lose!";
   }
 
   document.getElementById("dealer-sum").innerText = dealerSum;
   document.getElementById("your-sum").innerText = yourSum;
   document.getElementById("results").innerText = message;
+
+  checkMoneyLeft();
+}
+function checkMoneyLeft() {
+  //8 needed for proper strategy in blackjack assuming smallest bet =1
+  if (money <= 8) {
+    console.log("you lost: enought money to continue playing");
+  } else {
+    //integer keys are automatically converted to strings
+    saveInSessionStorage();
+  }
+
+  function saveInSessionStorage() {
+    sessionStorage.clear();
+    sessionStorage.setItem("currentMoney", money);
+    console.log("do u want a new round?");
+    newRound();
+  }
+}
+function newRound() {
+  //NOT  sessionStorage.clear();  if sonebosy clicks mutiple times the new round button??? so when correct bet input i tihnk
+  btnRound.addEventListener("click", reload);
 }
 
+//THIS IS CLUSTER OF FUNCTIONS TO OD WITH CARD RENDERING AND CACLUATING VALUES
 function renderCard(card, container) {
   let cardImg = document.createElement("img");
   cardImg.src = "./cards/" + card + ".png";
