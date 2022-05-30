@@ -63,7 +63,7 @@ function setInitialInput() {
         "To play proper strategy your bet needs to be 8 times smaller than your current money";
     }
     if (messages.length > 0) {
-      errorElement.innerHTML = messages;
+      errorInput.innerHTML = messages;
     }
     if (messages.length == 0) {
       console.log("i am happy");
@@ -83,6 +83,7 @@ function setInitialInput() {
   });
 }
 function gameSetUp() {
+  errorInput.innerHTML = "";
   btnSubmitMoney.setAttribute("disabled", "disabled");
   console.log("hi setting up for the game");
   buildDeck();
