@@ -11,10 +11,34 @@ body {
     flex-direction: row;
 }
 nav{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     width:15vw;
     height: 100vh;
     background-color: gray;
 }
+.top{
+    display: flex;
+    background-color: red;
+    height: 15%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+.bottom{
+    height: 30%;
+    display: flex;
+    background-color: yellow;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+#errorMessageInput {
+    height: 40px;
+    /* background-color: red; */
+  }
 
 #dealer-cards img, #your-cards img {
     height: 175px;

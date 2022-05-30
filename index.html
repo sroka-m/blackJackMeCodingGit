@@ -14,7 +14,22 @@
         <a href="./indexDescription.html" target="_blank">Game rules</a>
         <button id="reload">New game</button>
       </div>
-      <div class="bottom"></div>
+      <div class="bottom">
+        <form id="setInitialMoney">
+          <label for="bet">Bet</label>
+          <hr />
+          <input type="number" min="1" id="bet" />
+          <span>£</span>
+          <hr />
+          <label for="money">Money:</label>
+          <hr />
+          <input type="number" max="9999" min="1" id="money" />
+          <span>£</span>
+          <input type="submit" value="Go!" />
+        </form>
+        <div id="errorMessageInput"></div>
+        <button id="round">New round</button>
+      </div>
     </nav>
     <div id="main">
       <h2>Dealer: <span id="dealer-sum"></span></h2>
