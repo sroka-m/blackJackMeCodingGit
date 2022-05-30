@@ -9,17 +9,24 @@
     <title>Document</title>
   </head>
   <body>
-    <a href="./indexDescription.html" target="_blank">Game rules</a>
-    <h2>Dealer: <span id="dealer-sum"></span></h2>
-    <div id="dealer-cards">
-      <img id="hidden" src="./cards/BACK.png" />
+    <nav>
+      <div class="top">
+        <a href="./indexDescription.html" target="_blank">Game rules</a>
+        <button id="reload">New game</button>
+      </div>
+      <div class="bottom"></div>
+    </nav>
+    <div id="main">
+      <h2>Dealer: <span id="dealer-sum"></span></h2>
+      <div id="dealer-cards">
+        <img id="hidden" src="./cards/BACK.png" />
+      </div>
+      <h2>You: <span id="your-sum"></span></h2>
+      <div id="your-cards"></div>
+      <br />
+      <button id="hit">Hit</button>
+      <button id="stay">Stay</button>
+      <p id="results"></p>
     </div>
-    <h2>You: <span id="your-sum"></span></h2>
-    <div id="your-cards"></div>
-    <br />
-    <button id="hit">Hit</button>
-    <button id="stay">Stay</button>
-    <p id="results"></p>
-    <button id="reload">New game</button>
   </body>
 </html>
