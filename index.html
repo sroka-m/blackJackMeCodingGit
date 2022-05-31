@@ -16,32 +16,34 @@
       </div>
       <div class="bottom">
         <form id="setMoney">
-          <label for="bet">Bet</label>
-          <hr />
+          <label for="bet">Bet</label> <br />
           <input type="number" min="1" id="bet" />
-          <span>£</span>
-          <hr />
-          <label for="money">Money:</label>
-          <hr />
+          <span>£</span><br />
+          <label for="money">Money:</label> <br />
           <input type="number" max="9999" min="1" id="money" />
           <span>£</span>
+
           <input type="submit" value="Go!" />
         </form>
         <div id="errorMessageInput"></div>
         <button id="round">New round</button>
       </div>
     </nav>
-    <div id="main">
-      <h2>Dealer: <span id="dealer-sum"></span></h2>
-      <div id="dealer-cards">
-        <img id="hidden" src="./cards/BACK.png" />
+    <main>
+      <div id="dealerDiv">
+        <h2>Dealer: <span id="dealer-sum"></span></h2>
+        <div id="dealer-cards">
+          <img id="hidden" src="./cards/BACK.png" />
+        </div>
       </div>
-      <h2>You: <span id="your-sum"></span></h2>
-      <div id="your-cards"></div>
-      <br />
-      <button id="hit">Hit</button>
-      <button id="stay">Stay</button>
-      <p id="results"></p>
-    </div>
+      <div class="playerDvi">
+        <h2>You: <span id="your-sum"></span></h2>
+        <div class="your-cards"></div>
+        <br />
+        <button id="hit">Hit</button>
+        <button id="stay">Stay</button>
+        <p id="results"></p>
+      </div>
+    </main>
   </body>
 </html>

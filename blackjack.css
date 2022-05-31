@@ -1,63 +1,108 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 body {
-    font-family: "Poppins", sans-serif;
-    text-align: center;
-    display: flex;
-    flex-direction: row;
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
 }
-nav{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    width:15vw;
-    height: 100vh;
-    background-color: gray;
+nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 15vw;
+  height: 100vh;
+  background-color: gray;
 }
-.top{
-    display: flex;
-    background-color: red;
-    height: 15%;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+.top {
+  display: flex;
+  /* background-color: red; */
+  height: 15%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.bottom {
+  height: 60%;
+  display: flex;
+  /* background-color: yellow; */
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+main {
+  width: 85vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
 
+.your-cards {
+  height: 175px;
 }
-.bottom{
-    height: 30%;
-    display: flex;
-    background-color: yellow;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+
+#dealer-cards img,
+.your-cards img {
+  height: 175px;
+  width: 125px;
+  margin: 10px;
+}
+#setMoney {
+  width: 100%;
+  /* padding: 0;
+  margin: 0; */
+}
+
+button,
+input[type="submit"] {
+  font-size: 1.5rem;
+  text-align: center;
+  border-radius: 5px;
+  font-weight: bold;
+  border: none;
+}
+
+nav button,
+input[type="submit"] {
+  width: 90%;
+  height: 2.5rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+#hit,
+#stay {
+  width: 10vw;
+  height: 2.7rem;
+}
+input[type="number"] {
+  width: 80%;
+  height: 2.5rem;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  padding-left: 10px;
+}
+a {
+  text-decoration: none;
+  /* padding: 0.5rem 0; */
+  color: black;
+}
+label,
+a {
+  display: inline-block;
+  width: 90%;
+  text-align: left;
 }
 #errorMessageInput {
-    height: 40px;
-    /* background-color: red; */
-  }
-
-#dealer-cards img, #your-cards img {
-    height: 175px;
-    width: 125px;
-    margin: 1px;
-}
-
-button {
-    width: 100px;
-    height: 50px;
-    font-size: 20px;
-    text-align: center;
-}
-
-#reload{
-    width: 150px;
-    background-color: #eb474f;
-    color: white;
-    font-weight: bold;
-    border-radius: 5px;
-    border: none;
+  /* background-color: green; */
+  width: 90%;
+  height: 8vw;
+  padding: 5px;
+  text-align: left;
 }

@@ -16,7 +16,7 @@ let canHit = true; //allows the player (you) to draw while yourSum <= 21
 //u need to defer for these constants NOT to be null
 const para = document.querySelector("#results");
 const dealerContainer = document.querySelector("#dealer-cards");
-const yourContainer = document.querySelector("#your-cards");
+const yourContainer = document.querySelector(".your-cards");
 const newGame = document.querySelector("#reload");
 
 //the variables relating to money
